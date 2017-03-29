@@ -1,1 +1,1 @@
-angular.module("inventory", []);
+angular.module("inventory", ["customFltr"]);

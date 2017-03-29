@@ -18,9 +18,35 @@
     <![endif]-->
     <!-- my script files -->
     <script src="./app/app.js"></script>
+    <script src="./app/controllers/inventoryController.js"></script>
+    <script src="./app/filters/customFilters.js"></script>
+    <script src="./app/controllers/productListControllers.js"></script>
   </head>
 
-  <body class="container">
+  <body class="container" ng-controller="inventoryCtrl as invent">
+    <div class="navbar navbar-inverse">
+      <a class="navbar-brand" href="http://dry-sands-81401.herokuapp.com/companies">My Inventory</a>
+    </div>
+    <div class="panel panel-default row" ng-controller="productListCtrl">
+      <div class="col-xs-3">
+        <a ng-click="selectCategory()" class="btn btn-block btn-default btn-lg">Home</a>
+        <a ng-repeat="item in data.products | orderBy: 'category' | unique: 'category'" ng-click="selectCategory(item)" class="btn btn-block btn-default btn-lg" ng-class="getCategoryClass(item)">{{item}}</a>
+      </div>
+      <div class="col-xs-8">
+        <div class="well" ng-repeat="item in data.products | filter:categoryFilterFn | range:selectedPage:pageSize">
+          <h3>
+            <strong>{{item.name}}</strong>
+            <span class="pull-right label label-primary">
+              {{item.price | currency}}
+            </span>
+          </h3>
+          <span class="lead">{{item.description}}</span>
+        </div>
+        <div class="pull-right btn-group">
+          <a ng-repeat="page in data.products | filter:categoryFilterFn | pageCount:pageSize" ng-click="selectPage($index + 1)" class="btn btn-default" ng-class="getPageClass($index + 1)">{{$index + 1}}</a>
+        </div>
+      </div>
+    </div>
     <h1>{{2 + 2}} = 2 + 2</h1>
   </body>
 
