@@ -1,0 +1,19 @@
+{
+  "name": "inventory-angular-template",
+  "version": "1.0.0",
+  "description": "inventory application built with angular",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dapperAuteur/inventory-angular-template.git"
+  },
+  "author": "aweful",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dapperAuteur/inventory-angular-template/issues"
+  },
+  "homepage": "https://github.com/dapperAuteur/inventory-angular-template#readme"
+}
